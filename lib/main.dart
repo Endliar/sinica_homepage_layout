@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sinica/helpers/constants.dart';
 import 'package:sinica/home/homepage.dart';
 
 void main() {
