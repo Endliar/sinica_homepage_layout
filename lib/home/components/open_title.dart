@@ -24,22 +24,23 @@ Padding openTitle(String title) {
           ),
         ),
         SizedBox(width: getProportionateScreenWidth(8),),
-        AutoSizeText(title,
-            maxLines: 1,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+        Expanded(
+          child: AutoSizeText(title,
+              maxLines: 1,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+        ),
         SizedBox(
           width: getProportionateScreenWidth(18),
         ),
-        const Expanded(
-            child: CircleAvatar(
+        const CircleAvatar(
           backgroundColor: kIconColor,
           radius: 24,
           child: Icon(
-            Icons.phone,
-            size: 24,
-            color: Colors.white,
+        Icons.phone,
+        size: 24,
+        color: Colors.white,
           ),
-        ))
+        )
       ],
     ),
   );

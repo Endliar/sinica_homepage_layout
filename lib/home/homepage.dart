@@ -3,6 +3,7 @@ import 'package:sinica/helpers/constants.dart';
 import 'package:sinica/helpers/size_config.dart';
 
 import 'components/delivery_time.dart';
+import 'components/discount_banner.dart';
 import 'components/open_title.dart';
 import 'components/search_text_field.dart';
 
@@ -36,8 +37,8 @@ class _HomepageState extends State<Homepage> {
                   decoration: const BoxDecoration(
                       color: kSecondaryColor,
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30))),
+                          topLeft: Radius.circular(28),
+                          topRight: Radius.circular(28))),
                   child: Stack(
                     children: [
                       Padding(
@@ -59,40 +60,11 @@ class _HomepageState extends State<Homepage> {
                             SizedBox(
                               height: getProportionateScreenHeight(16),
                             ),
-                            Container(
-                                height: 60,
-                                width: 361,
-                                decoration: BoxDecoration(
-                                    color: kIconColor,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Center(
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        width: getProportionateScreenWidth(16),
-                                      ),
-                                      const Image(image: AssetImage("assets/images/discount.png")),
-                                      SizedBox(
-                                        width: getProportionateScreenWidth(4),
-                                      ),
-                                      const Text(
-                                        "Скидки до 20% на снеки",
-                                        style: TextStyle(
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(
-                                        width: getProportionateScreenWidth(57),
-                                      ),
-                                      const CircleAvatar(
-                                          radius: 20,
-                                          backgroundColor: kIconColor,
-                                          child: Icon(
-                                              Icons.arrow_forward_ios_sharp,
-                                              color: kTextColor)),
-                                    ],
-                                  ),
-                                ))
+                            discountBanner("Скидки до 20 на снеки"),
+                            SizedBox(
+                              height: getProportionateScreenHeight(12),
+                            ),
+                            discountBanner("Скидка 10% на первый заказ!"),
                           ],
                         ),
                       )
