@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sinica/helpers/constants.dart';
 import 'package:sinica/helpers/size_config.dart';
+import 'package:sinica/home/components/buildCard.dart';
+import 'package:sinica/models/Card.dart';
 
 import 'components/delivery_time.dart';
 import 'components/discount_banner.dart';
 import 'components/open_title.dart';
+import 'components/profitable_row.dart';
+import 'components/recommendation_slider.dart';
+import 'components/reorder_card.dart';
 import 'components/search_text_field.dart';
 
 class Homepage extends StatefulWidget {
@@ -39,36 +44,48 @@ class _HomepageState extends State<Homepage> {
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(28),
                           topRight: Radius.circular(28))),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: getProportionateScreenHeight(20),
-                            left: getProportionateScreenWidth(16),
-                            right: getProportionateScreenWidth(16)),
-                        child: Column(
-                          children: [
-                            deliveryTime(),
-                            SizedBox(
-                              height: getProportionateScreenHeight(18),
-                            ),
-                            SizedBox(
-                              height: getProportionateScreenHeight(36),
-                              width: getProportionateScreenWidth(361),
-                              child: searchTextField(),
-                            ),
-                            SizedBox(
-                              height: getProportionateScreenHeight(16),
-                            ),
-                            discountBanner("Скидки до 20 на снеки"),
-                            SizedBox(
-                              height: getProportionateScreenHeight(12),
-                            ),
-                            discountBanner("Скидка 10% на первый заказ!"),
-                          ],
-                        ),
-                      )
-                    ],
+                  child: SingleChildScrollView(
+                    child: Stack(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: getProportionateScreenHeight(20),
+                              left: getProportionateScreenWidth(16),
+                              right: getProportionateScreenWidth(16)),
+                          child: Column(
+                            children: [
+                              deliveryTime(),
+                              SizedBox(
+                                height: getProportionateScreenHeight(18),
+                              ),
+                              SizedBox(
+                                height: getProportionateScreenHeight(36),
+                                width: getProportionateScreenWidth(361),
+                                child: searchTextField(),
+                              ),
+                              SizedBox(
+                                height: getProportionateScreenHeight(16),
+                              ),
+                              discountBanner("Скидки до 20% на снеки"),
+                              SizedBox(
+                                height: getProportionateScreenHeight(12),
+                              ),
+                              discountBanner("Скидка 10% на первый заказ!"),
+                              SizedBox(
+                                height: getProportionateScreenHeight(24),
+                              ),
+                              recommendationSlider(),
+                              const SizedBox(
+                                height: 28,
+                              ),
+                              profitableRow(),
+                              SizedBox(height: getProportionateScreenHeight(16),),
+
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   )))
         ],
       ),
