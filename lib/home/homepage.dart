@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:sinica/helpers/constants.dart';
 import 'package:sinica/helpers/size_config.dart';
 import 'package:sinica/home/components/buildCard.dart';
+import 'package:sinica/home/components/categoryCard.dart';
+import 'package:sinica/home/components/profitableCard.dart';
 import 'package:sinica/models/Card.dart';
+import 'package:sinica/models/ProductCategory.dart';
+import 'package:sinica/models/Profitable.dart';
 
 import 'components/delivery_time.dart';
 import 'components/discount_banner.dart';
 import 'components/open_title.dart';
 import 'components/profitable_row.dart';
+import 'components/profitable_slider.dart';
 import 'components/recommendation_slider.dart';
 import 'components/reorder_card.dart';
 import 'components/search_text_field.dart';
@@ -78,9 +83,46 @@ class _HomepageState extends State<Homepage> {
                               const SizedBox(
                                 height: 28,
                               ),
-                              profitableRow(),
-                              SizedBox(height: getProportionateScreenHeight(16),),
-
+                              profitableRow("Выгодно!"),
+                              SizedBox(
+                                height: getProportionateScreenHeight(16),
+                              ),
+                              profitableSlider(),
+                              SizedBox(
+                                height: getProportionateScreenHeight(28),
+                              ),
+                              SizedBox(
+                                  width: double.infinity,
+                                  child: ListView.separated(
+                                    itemCount: (category.length / 2).ceil(),
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    separatorBuilder: (context, index) =>
+                                        SizedBox(
+                                      height: getProportionateScreenHeight(14),
+                                    ),
+                                    itemBuilder: (context, index) {
+                                      final startIndex = index * 2;
+                                      final endIndex = startIndex + 2;
+                                      return Row(
+                                        children: category
+                                            .sublist(startIndex, endIndex)
+                                            .map((cat) {
+                                          return Expanded(
+                                            child: CategoryCard(
+                                              id: cat.id,
+                                              title: cat.title,
+                                              images: cat.images,
+                                            ),
+                                          );
+                                        }).toList(),
+                                      );
+                                    },
+                                  )),
+                              SizedBox(
+                                height: getProportionateScreenHeight(11),
+                              )
                             ],
                           ),
                         )

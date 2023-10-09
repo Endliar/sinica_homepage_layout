@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import '../../helpers/constants.dart';
 import '../../helpers/size_config.dart';
 
-Row profitableRow() {
+Row profitableRow(String title) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      const Text(
-        "Выгодно",
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+      Text(
+        title,
+        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
       ),
       ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: kIconColor),
