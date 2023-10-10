@@ -8,6 +8,7 @@ import 'package:sinica/models/Card.dart';
 import 'package:sinica/models/ProductCategory.dart';
 import 'package:sinica/models/Profitable.dart';
 
+import 'components/category_card.dart';
 import 'components/delivery_time.dart';
 import 'components/discount_banner.dart';
 import 'components/open_title.dart';
@@ -91,35 +92,7 @@ class _HomepageState extends State<Homepage> {
                               SizedBox(
                                 height: getProportionateScreenHeight(28),
                               ),
-                              SizedBox(
-                                  width: double.infinity,
-                                  child: ListView.separated(
-                                    itemCount: (category.length / 2).ceil(),
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    separatorBuilder: (context, index) =>
-                                        SizedBox(
-                                      height: getProportionateScreenHeight(14),
-                                    ),
-                                    itemBuilder: (context, index) {
-                                      final startIndex = index * 2;
-                                      final endIndex = startIndex + 2;
-                                      return Row(
-                                        children: category
-                                            .sublist(startIndex, endIndex)
-                                            .map((cat) {
-                                          return Expanded(
-                                            child: CategoryCard(
-                                              id: cat.id,
-                                              title: cat.title,
-                                              images: cat.images,
-                                            ),
-                                          );
-                                        }).toList(),
-                                      );
-                                    },
-                                  )),
+                              categoryCard(),
                               SizedBox(
                                 height: getProportionateScreenHeight(11),
                               )

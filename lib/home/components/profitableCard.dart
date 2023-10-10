@@ -90,12 +90,15 @@ class ProfitableCard extends StatelessWidget {
                       style: const TextStyle(
                           decoration: TextDecoration.lineThrough,
                           fontSize: 14,
+                          fontWeight: FontWeight.w500,
                           color: kSecondaryInactiveTextColor),
                     ),
                     TextSpan(
                         text: ' $price +',
-                        style:
-                            const TextStyle(fontSize: 16, color: kPrimaryColor))
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: kPrimaryColor))
                   ]))),
             )
           ],

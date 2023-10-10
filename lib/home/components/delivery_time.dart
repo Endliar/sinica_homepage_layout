@@ -16,7 +16,7 @@ Row deliveryTime() {
       ),
       const Text(
         "Доставка ",
-        style: TextStyle(color: Colors.grey, fontSize: 24),
+        style: TextStyle(color: Colors.grey, fontSize: 24, fontWeight: FontWeight.w600),
       ),
       const Text(
         "40 минут",
